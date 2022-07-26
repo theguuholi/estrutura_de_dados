@@ -26,6 +26,8 @@ Tamanho da Entrada:
 The Constant Function
 f(n) = c
 
+Acessar indices no banco de dados
+
 Constant is not a reality 
 
 LOG function
@@ -54,4 +56,7 @@ CUBIC
 
 EXPONENTIAL
 
+
+
+ANALISE ASSINTOTICA
 
