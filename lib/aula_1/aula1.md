@@ -1,6 +1,5 @@
 https://www.youtube.com/watch?v=UvvFaNV68Xs&list=PLA05yVJtRWYS4mhKqJo_1bZqcetSGjDgU&index=1
 
-1:12:50
 
 Contagem de operacoes primitivas
 A primitive operations corresponds to a low-level instruction with an execution time that is contant
@@ -60,3 +59,5 @@ EXPONENTIAL
 
 ANALISE ASSINTOTICA
 
+
+https://leetcode.com/
