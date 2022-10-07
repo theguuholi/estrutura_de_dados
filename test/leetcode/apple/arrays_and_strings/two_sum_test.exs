@@ -6,21 +6,39 @@ defmodule Leetcode.Apple.ArraysAndStrings.TwoSumTest do
   # You may assume that each input would have exactly one solution, and you may not use the same element twice.
   #You can return the answer in any order.
 
-  test "greets the world" do
+  test "greets the world O(n2)" do
     nums = [2, 7, 11, 15]
     target = 9
     assert TwoSum.two_sum(nums, target) == [0,1]
   end
 
-  test "greets the world 2" do
+  test "greets the world 2 O(n2)" do
     nums = [3, 2, 4]
     target = 6
     assert TwoSum.two_sum(nums, target) == [1, 2]
   end
 
-  test "greets the world 3" do
+  test "greets the world 3 O(n2)" do
     nums = [3, 2, 3]
     target = 6
     assert TwoSum.two_sum(nums, target) == [0,2]
+  end
+
+  test "greets the world O(n)" do
+    nums = [2, 7, 11, 15]
+    target = 9
+    assert TwoSum.two_sum_linear(nums, target) == [0, 1]
+  end
+
+  test "greets the world 2 O(n)" do
+    nums = [3, 2, 4]
+    target = 6
+    assert TwoSum.two_sum_linear(nums, target) == [1, 2]
+  end
+
+  test "greets the world 3 O(n)" do
+    nums = [3, 2, 3]
+    target = 6
+    assert TwoSum.two_sum_linear(nums, target) == [0,2]
   end
 end

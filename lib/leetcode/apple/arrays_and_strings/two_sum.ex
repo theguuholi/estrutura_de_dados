@@ -29,4 +29,22 @@ defmodule Leetcode.Apple.ArraysAndStrings.TwoSum do
       rec_2({n1, i1}, nums_2, target)
     end
   end
+
+  # linear
+
+  def two_sum_linear(nums, target) do
+    Enum.reduce_while(nums, {0, %{}}, fn num, {index, map} ->
+      value_missing_to_target = target - num
+
+      if Map.has_key?(map, value_missing_to_target) do
+        index_value = Map.get(map, value_missing_to_target)
+        result = (index > index_value && [index_value, index]) || [index, index_value]
+        {:halt, result}
+      else
+        map = Map.put(map, num, index)
+        acc = {index + 1, map}
+        {:cont, acc}
+      end
+    end)
+  end
 end

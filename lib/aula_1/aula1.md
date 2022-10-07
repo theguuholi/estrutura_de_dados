@@ -33,8 +33,6 @@ LOG function
 
 LogN
 
-
-
 Linear
 
 Time 
