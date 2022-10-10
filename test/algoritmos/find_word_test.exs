@@ -14,8 +14,14 @@ defmodule Algoritmos.FindWordTest do
 # 4. [“R>T”, “A>L”, “P>O”, “O>R”, “G>A”, “T>U”, “U>G”, ] - Portugal
 # 5. [“W>I”, “R>L”, “T>Z”, “Z>E”, “S>W”, “E>R”, “L>A”, “A>N”, “I>T”,] - SWITZERLAN
 
-  test "greets the world" do
-    payload = ["U>N", "G>A", "R>Y", "H>U", "N>G", "A>R"]
-    assert FindWord.execute(payload) == "HUNGARY"
+  test "peru" do
+    payload =["P>E", "E>R", "R>U"]
+
+    assert FindWord.execute(payload) == "PERU"
   end
+
+  # test "greets the world" do
+  #   payload = ["U>N", "G>A", "R>Y", "H>U", "N>G", "A>R"]
+  #   assert FindWord.execute(payload) == "HUNGARY"
+  # end
 end
