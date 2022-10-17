@@ -10,6 +10,7 @@ defmodule Techniques.SlidingWindow.SumTest do
   use ExUnit.Case
 
   test "get_max from an array of sub 3" do
+    assert Sum.execute([4, 2, 1, 7]) == 10
     assert Sum.execute([4, 2, 1, 7, 8, 1, 2, 8, 1, 0]) == 16
   end
 

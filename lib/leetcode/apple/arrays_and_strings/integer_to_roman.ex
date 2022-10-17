@@ -18,22 +18,54 @@ defmodule Leetcode.Apple.ArraysAndStrings.IntegerToRoman do
   # C can be placed before D (500) and M (1000) to make 400 and 900.
   # Given an integer, convert it to a roman numeral.
 
-  @lengh %{
-    1 => "I",
-    2 => "II",
-    3 => "III",
-  }
-
   def int_to_roman(num) do
     num
     |> Integer.digits()
     |> calculate_roman()
+    |> then(fn {v, _} -> v end)
   end
 
   defp calculate_roman(num) do
-    num
-    |> length()
+    length = length(num)
 
-    Map.get(@lengh, n)
+    Enum.reduce(num, {"", length}, fn n, {acc, l} ->
+      add =
+        cond do
+          l == 1 and n < 10 -> to_nine(n)
+          l == 2 -> to_m(n)
+          l == 3 -> to_x(n)
+          l == 4 -> to_x(n)
+        end
+
+      {acc <> add, l - 1}
+    end)
+  end
+
+  defp to_x(n) do
+    IO.inspect n
+  end
+
+  defp to_m(n) do
+    cond do
+      n < 4 -> Enum.reduce(1..n, "", fn _, acc -> acc <> "X" end)
+      n == 5 -> "L"
+    end
+  end
+
+  defp to_nine(n) do
+    cond do
+      n < 4 ->
+        Enum.reduce(1..n, "", fn _, acc -> acc <> "I" end)
+
+      n == 4 ->
+        "IV"
+
+      n == 5 ->
+        "V"
+
+      n > 5 ->
+        rest = n - 5
+        "V" <> Enum.reduce(1..rest, "", fn _, acc -> acc <> "I" end)
+    end
   end
 end
