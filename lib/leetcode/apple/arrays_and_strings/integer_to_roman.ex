@@ -18,54 +18,56 @@ defmodule Leetcode.Apple.ArraysAndStrings.IntegerToRoman do
   # C can be placed before D (500) and M (1000) to make 400 and 900.
   # Given an integer, convert it to a roman numeral.
 
-  def int_to_roman(num) do
-    num
-    |> Integer.digits()
-    |> calculate_roman()
-    |> then(fn {v, _} -> v end)
+  @roman_decimal [
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  ]
+
+  def int_to_roman_greedy(number) do
+    numeral("", number, @roman_decimal)
   end
 
-  defp calculate_roman(num) do
-    length = length(num)
+  def int_to_roman_hard_coded(num) do
+    thousands = ["", "M", "MM", "MMM"]
+    hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+    tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+    ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
 
-    Enum.reduce(num, {"", length}, fn n, {acc, l} ->
-      add =
-        cond do
-          l == 1 and n < 10 -> to_nine(n)
-          l == 2 -> to_m(n)
-          l == 3 -> to_x(n)
-          l == 4 -> to_x(n)
-        end
+    hundreds_calc = num |> rem(1000) |> div(100)
+    thousands_calc = div(num, 1000)
+    tens_calc = num |> rem(100) |> div(10)
+    ones_calc = num |> rem(10)
 
-      {acc <> add, l - 1}
-    end)
+    Enum.at(thousands, thousands_calc) <>
+      Enum.at(hundreds, hundreds_calc) <>
+      Enum.at(tens, tens_calc) <> Enum.at(ones, ones_calc)
   end
 
-  defp to_x(n) do
-    IO.inspect n
+  defp numeral(
+         roman_acc,
+         number,
+         [{roman_numeral, decimal_value} | _t] = roman_to_decimal_mappings
+       )
+       when number >= decimal_value do
+    roman_numeral = Atom.to_string(roman_numeral)
+    roman_acc = roman_acc <> roman_numeral
+    numeral(roman_acc, number - decimal_value, roman_to_decimal_mappings)
   end
 
-  defp to_m(n) do
-    cond do
-      n < 4 -> Enum.reduce(1..n, "", fn _, acc -> acc <> "X" end)
-      n == 5 -> "L"
-    end
+  defp numeral(roman_acc, number, [_h | remaining_mappings]) do
+    numeral(roman_acc, number, remaining_mappings)
   end
 
-  defp to_nine(n) do
-    cond do
-      n < 4 ->
-        Enum.reduce(1..n, "", fn _, acc -> acc <> "I" end)
-
-      n == 4 ->
-        "IV"
-
-      n == 5 ->
-        "V"
-
-      n > 5 ->
-        rest = n - 5
-        "V" <> Enum.reduce(1..rest, "", fn _, acc -> acc <> "I" end)
-    end
-  end
+  defp numeral(roman_acc, _n, [] = _remaining_mappings), do: roman_acc
 end
