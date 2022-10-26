@@ -9,19 +9,21 @@ defmodule Algoritmos.FindWordTest do
 # Examples:
 
 # 1. [“P>E”, “E>R”, “R>U”] - PERU
-# 2. [“I>N”, A>I”, P>A”, S>P”, ] - SPAIN
+# 2. [“I>N”, A>I”, P>A”, S>P”] - SPAIN
 # 3. [“I>F”, “W>I”, “S>W”, “F>T”, ] - SWIFT
 # 4. [“R>T”, “A>L”, “P>O”, “O>R”, “G>A”, “T>U”, “U>G”, ] - Portugal
 # 5. [“W>I”, “R>L”, “T>Z”, “Z>E”, “S>W”, “E>R”, “L>A”, “A>N”, “I>T”,] - SWITZERLAN
 
-  test "peru" do
-    payload =["P>E", "E>R", "R>U"]
+  # test "peru" do
+  #   payload = ["P>E", "E>R", "R>U"]
+  #   assert FindWord.execute(payload) == "PERU"
 
-    assert FindWord.execute(payload) == "PERU"
-  end
-
-  # test "greets the world" do
-  #   payload = ["U>N", "G>A", "R>Y", "H>U", "N>G", "A>R"]
-  #   assert FindWord.execute(payload) == "HUNGARY"
+  #   # payload = ["I>N", "A>I", "P>A", "S>P"]
+  #   # assert FindWord.execute(payload) == "SPAIN"
   # end
+
+  test "greets the world" do
+    payload = ["U>N", "G>A", "R>Y", "H>U", "N>G", "A>R"]
+    assert FindWord.execute(payload) == "HUNGARY"
+  end
 end
