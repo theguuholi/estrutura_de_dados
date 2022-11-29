@@ -25,8 +25,6 @@ defmodule Techniques.TwoPointers.Ex1 do
   def get_target(_, l, r, _, :halt), do: [l, r]
   def get_target(_, _, _, _, :cont), do: false
 
-
-
   def palindrome(string) do
     list = String.codepoints(string)
     last = length(list) - 1
@@ -43,37 +41,35 @@ defmodule Techniques.TwoPointers.Ex1 do
     (left_v == right_v && rec(list, left + 1, right - 1, true)) || rec(list, left, right, false)
   end
 
-
   ####
 
   def ans(arr_1, arr_2) do
-    arr_1
+    arr_1_lengh = length(arr_1)
+    arr_2_lengh = length(arr_2)
+
+    ans_rec(arr_1, arr_2, arr_1_lengh, arr_2_lengh, 0, 0, [])
   end
+
+  defp ans_rec(arr_1, arr_2, arr_1_lengh, arr_2_lengh, i, j, list)
+       when i < arr_1_lengh and j < arr_2_lengh do
+    value_i = Enum.at(arr_1, i)
+    value_j = Enum.at(arr_2, j)
+
+    if value_i < value_j do
+      list = list ++ [value_i]
+      ans_rec(arr_1, arr_2, arr_1_lengh, arr_2_lengh, i + 1, j, list)
+    else
+      list = list ++ [value_j]
+      ans_rec(arr_1, arr_2, arr_1_lengh, arr_2_lengh, i, j + 1, list)
+    end
+  end
+
+  defp ans_rec(arr_1, arr_2, _arr_1_lengh, _arr_2_lengh, i, j, list) do
+    arr_1 = Enum.drop(arr_1, i)
+    list = list ++ arr_1
+    arr_2 = Enum.drop(arr_2, j)
+    list ++ arr_2
+  end
+
+
 end
-
-
-# List<Integer> ans = new ArrayList<>();
-# int i = 0;
-# int j = 0;
-
-# while (i < arr1.length && j < arr2.length) {
-#     if (arr1[i] < arr2[j]) {
-#         ans.add(arr1[i]);
-#         i++;
-#     } else {
-#         ans.add(arr2[j]);
-#         j++;
-#     }
-# }
-
-# while (i < arr1.length) {
-#     ans.add(arr1[i]);
-#     i++;
-# }
-
-# while (j < arr2.length) {
-#     ans.add(arr2[j]);
-#     j++;
-# }
-
-# return ans;

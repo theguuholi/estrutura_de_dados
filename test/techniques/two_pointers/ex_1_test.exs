@@ -19,4 +19,14 @@ defmodule Techniques.TwoPointer.Ex1Test do
 
     assert Ex1.ans(arr_1, arr_2) == Enum.sort(arr_1 ++ arr_2)
   end
+
+  # Remember that the methods laid out here are just guidelines.
+  #  For example, in the first method, we started the pointers at the first and last index,
+  #  but sometimes you might find a problem that involves starting the pointers at different indices.
+  #  In the second method, we moved two pointers forward along two different inputs. Sometimes,
+  #  there will only be one input array/string, but we still initialize both pointers at the first index
+  #  and move both of them forward.
+  # Two pointers just refers to using two integer variables to move along some iterables.
+  # The strategies we looked at in this article are the most common patterns, but always be on the lookout
+  #  for a different way to approach a problem.
 end

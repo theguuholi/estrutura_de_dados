@@ -1,4 +1,5 @@
 defmodule Techniques.SlidingWindow.SumTest do
+  alias Techniques.SlidingWindow
   alias Techniques.SlidingWindow.Sum
 
   # things we iterate over sequentially:
