@@ -12,18 +12,34 @@ defmodule Leetcode.Apple.ArraysAndStrings.ThreeSumTest do
   end
 
   # JS
-  # nums = [-1, 0, 1, 2, -1, -4]
-    # nums = nums.sort()
-    # arr  = [[]]
-#   for (i = 0; i <= nums.length - 2; i ++) {
-#     if (i == 0 || (i > 0 && nums[i] !== nums[i - 1])) {
-#          low = i + 1;
-#         high = nums.length - 1
-#         sum = 0 - nums[i]
-#         while(low < high) {
-#             if(nums[low] + nums[high] == sum) {}
-#         }
-#     }
-# }
+  # nums = [-1,0,1,2,-1,-4]
 
+  # function threeSum(nums) {
+  #     if(nums.length < 3) return []
+  #     const output = []
+  #     nums.sort((a,b) => a - b)
+  #     for(i = 0; i < nums.length - 2;i++) {
+  #         if (i > 0 && nums[i] === nums[i - 1]) continue
+  #         left = i+1
+  #         right = nums.length-1
+
+  #         while (left < right) {
+  #             const sum = nums[i] + nums[right] + nums[left]
+  #             if(sum===0) {
+  #                 output.push([nums[i], nums[left], nums[right]])
+  #                 while(nums[left]===nums[left+1]) left++
+  #                 while(nums[right]===nums[right-1]) right--
+  #                 left++
+  #                 right--
+  #             } else if (sum > 0) {
+  #                right--
+  #             } else {
+  #                 left++
+  #             }
+  #         }
+  #     }
+
+  #     return output
+  # };
+  # console.log(threeSum(nums));
 end
