@@ -70,6 +70,4 @@ defmodule Techniques.TwoPointers.Ex1 do
     arr_2 = Enum.drop(arr_2, j)
     list ++ arr_2
   end
-
-
 end

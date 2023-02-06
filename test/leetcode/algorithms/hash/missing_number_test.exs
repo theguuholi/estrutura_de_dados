@@ -3,7 +3,7 @@ defmodule Leetcode.Algorithms.Hash.MissingNumberTest do
   alias Leetcode.Algorithms.Hash.MissingNumber
 
   test "greets the world" do
-    nums = [3,0,1]
+    nums = [3, 0, 1]
     assert MissingNumber.execute(nums) == 2
   end
 end

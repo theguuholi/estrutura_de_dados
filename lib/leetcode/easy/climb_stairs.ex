@@ -12,6 +12,7 @@ defmodule Leetcode.Easy.ClimbStairs do
           value = Map.get(cache, e - 1) + Map.get(cache, e - 2)
           Map.put(cache, e, value)
         end)
+
       Map.get(cache, n)
     end
   end

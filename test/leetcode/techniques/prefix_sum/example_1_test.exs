@@ -14,5 +14,4 @@ defmodule Leetcode.Techniques.PrefixSum.Example1Test do
     limit = 13
     assert Example1.execute(nums, queries, limit) == [true, false, true]
   end
-
 end

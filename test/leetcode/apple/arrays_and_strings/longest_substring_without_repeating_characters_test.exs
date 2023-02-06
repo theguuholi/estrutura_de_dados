@@ -17,6 +17,7 @@ defmodule Leetcode.Apple.ArraysAndStrings.LongestSubstringWithoutRepeatingCharac
   test "3" do
     s = "bbbbbbb"
     assert LongestSubstringWithoutRepeatingCharacters.length_of_longest_substring(s) == 1
+
     # assert LongestSubstringWithoutRepeatingCharactexrs.length_of_longest_substring("tmmzuxt") == 5
   end
 end

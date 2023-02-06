@@ -9,10 +9,9 @@ defmodule Algoritmos.FindWord do
   #   acc <> f <> l
   # end
 
-  defp rec([e | t], acc) do
+  defp rec([e | _t], acc) do
     [f, _, _] = String.codepoints(e)
-    acc = acc <>  f
+     acc <> f
     # rec(t, acc)
   end
-
 end

@@ -3,10 +3,11 @@ defmodule Leetcode.Algorithms.MaxConsecutiveOnes3Test do
   alias Leetcode.Algorithms.MaxConsecutiveOnes3
 
   test "first" do
-    nums = [1,1,1,0,0,0,1,1,1,1,0]
+    nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0]
     k = 2
     assert MaxConsecutiveOnes3.execute(nums, k) == 6
   end
+
   # longest = function logestOnes(nums, k) {
   #   left = 0; //0
   #   for(right = 0; right < nums.length; right ++){

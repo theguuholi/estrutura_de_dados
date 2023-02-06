@@ -3,12 +3,12 @@ defmodule Leetcode.Algorithms.Hash.CountingElementsTest do
   alias Leetcode.Algorithms.Hash.CountingElements
 
   test "greets the world" do
-    arr = [1,2,3]
+    arr = [1, 2, 3]
     assert CountingElements.execute(arr) == 2
   end
 
   test "greets the world sdfds" do
-    arr = [1,3,2,3,5,0]
+    arr = [1, 3, 2, 3, 5, 0]
     assert CountingElements.execute(arr) == 3
   end
 

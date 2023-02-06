@@ -13,6 +13,7 @@ defmodule Leetcode.Apple.ArraysAndStrings.LongestSubstringWithoutRepeatingCharac
         {char_value, seen} when char_value == nil or char_value < left ->
           actual_final_result = max(right - left + 1, final_result)
           {left, right + 1, seen, actual_final_result}
+
         {char_value, seen} ->
           {char_value + 1, right + 1, seen, final_result}
       end

@@ -1,5 +1,4 @@
 defmodule Leetcode.Algorithms.SquaresSorterArrays do
-
   def execute(nums) do
     nums
     |> Enum.reduce([], fn n, acc ->

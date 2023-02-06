@@ -66,5 +66,4 @@ defmodule Leetcode.Apple.ArraysAndStrings.StringToInteger do
       "0"
     end
   end
-
 end

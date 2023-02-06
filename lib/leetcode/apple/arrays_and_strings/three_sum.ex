@@ -11,7 +11,6 @@ defmodule Leetcode.Apple.ArraysAndStrings.ThreeSum do
 
     tuple = List.to_tuple(nums)
 
-
     Stream.unfold({0, 1}, fn {i, j} ->
       if j < l, do: {{i, j}, {i, j + 1}}, else: {{i, j}, {i + 1, i + 2}}
     end)

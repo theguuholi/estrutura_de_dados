@@ -3,7 +3,7 @@ defmodule Leetcode.Algorithms.Hash.Pangram do
     s
     |> String.graphemes()
     |> Enum.reduce(%{}, fn e, hash ->
-     Map.update(hash, e, 1, &(&1))
+      Map.update(hash, e, 1, & &1)
     end)
     |> Map.values()
     |> Enum.count()

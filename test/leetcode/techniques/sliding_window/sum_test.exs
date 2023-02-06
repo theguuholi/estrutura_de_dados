@@ -14,5 +14,4 @@ defmodule Techniques.SlidingWindow.SumTest do
     assert Sum.execute([4, 2, 1, 7]) == 10
     assert Sum.execute([4, 2, 1, 7, 8, 1, 2, 8, 1, 0]) == 16
   end
-
 end
