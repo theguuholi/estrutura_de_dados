@@ -18,4 +18,9 @@ defmodule Leetcode.Algorithms.Hash.IntersectionOfMultipleArraysTest do
     nums = [[3, 1, 2, 4, 5], [1, 2, 3, 4], [3, 4, 5, 6]]
     assert IntersectionOfMultipleArrays.execute(nums) == [3, 4]
   end
+
+  test "greets the world 2" do
+    nums = [[1, 2, 3], [4, 5, 6]]
+    assert IntersectionOfMultipleArrays.execute(nums) == [3, 4]
+  end
 end
