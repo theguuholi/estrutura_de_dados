@@ -27,8 +27,6 @@ defmodule Leetcode.SystemDesign.Introduction.SystemDesignBasics.LogAggregation.L
             {logs, machines}
 
           "getLogsFromMachine" == event ->
-            IO.inspect(params, label: "pump")
-
             r =
               Enum.map(params, fn machine ->
                 machine = Map.get(machines, machine)
@@ -44,7 +42,20 @@ defmodule Leetcode.SystemDesign.Introduction.SystemDesignBasics.LogAggregation.L
             {logs, machines}
 
           "getLogsOfService" == event ->
-            acc
+            new_logs =
+              machines
+              |> Map.to_list()
+              |> Enum.map(fn {_machine_id, services} ->
+                Enum.map(params, fn service ->
+                  logs = Map.get(services, service)
+                  Enum.map(logs, fn {log_id, _m} -> log_id end)
+                end)
+              end)
+              |> List.flatten()
+
+            logs = logs ++ [new_logs]
+
+            {logs, machines}
 
           true ->
             acc
