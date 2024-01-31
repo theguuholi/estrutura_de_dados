@@ -57,6 +57,9 @@ defmodule Leetcode.SystemDesign.Introduction.SystemDesignBasics.LogAggregation.L
 
             {logs, machines}
 
+          "search" ->
+            acc
+
           true ->
             acc
         end
