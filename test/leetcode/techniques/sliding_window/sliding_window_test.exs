@@ -1,4 +1,4 @@
-defmodule Techniques.SlidingWindow.SumTest do
+defmodule Techniques.SlidingWindowTest do
   alias Techniques.SlidingWindow
   use ExUnit.Case
 
