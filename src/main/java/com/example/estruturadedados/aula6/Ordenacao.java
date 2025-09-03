@@ -1,5 +1,8 @@
 package com.example.estruturadedados.aula6;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Ordenacao {
 
     private int[] array;
@@ -112,5 +115,44 @@ public class Ordenacao {
             j++;
             k++;
         }
+    }
+
+    public int[] quickSort(int[] is) {
+      this.array = quickSortHelper(is, 0, is.length - 1);
+      return this.array;
+    }
+
+    private static int[] quickSortHelper(int[] is, int lowIndex, int highIndex) {
+        if(lowIndex >= highIndex) return is;
+        int pivotIndex = new Random().nextInt(highIndex - lowIndex + 1) + lowIndex;
+        int pivot = is[pivotIndex];
+        swap(is, pivotIndex, highIndex);
+        int leftPointer = partition(is, lowIndex, highIndex, pivot);
+        quickSortHelper(is, lowIndex, leftPointer - 1);
+        quickSortHelper(is, leftPointer + 1, highIndex);
+        return is;
+    }
+
+    private static int partition(int[] is, int lowIndex, int highIndex, int pivot) {
+        int leftPointer = lowIndex;
+        int rightPointer = highIndex;
+
+        while(leftPointer < rightPointer) {
+            while(is[leftPointer] <= pivot && leftPointer < rightPointer) {
+                leftPointer++;
+            }
+            while(is[rightPointer] >= pivot && leftPointer < rightPointer) {
+                rightPointer--;
+            }
+            swap(is, leftPointer, rightPointer);
+        }
+        swap(is, leftPointer, highIndex);
+        return leftPointer;
+    }
+
+    private static void swap(int[] is, int index1, int index2) {
+        int temp = is[index1];
+        is[index1] = is[index2];
+        is[index2] = temp;
     }
 }

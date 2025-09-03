@@ -71,4 +71,21 @@ public class OrdenacaoTests {
         ordenacao.mergeSort(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
         assertArrayEquals(ordenacao.getArray(), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
     }
+
+    @Test
+    void testOrdernaccaoQuickSort() {
+        var ordenacao = new Ordenacao();
+  
+        ordenacao.quickSort(new int[] { 1});
+        assertArrayEquals(ordenacao.getArray(), new int[] { 1 });
+
+        ordenacao.quickSort(new int[] { 2, 1 });
+        assertArrayEquals(ordenacao.getArray(), new int[] { 1, 2 });
+
+        ordenacao.quickSort(new int[] { 9, 7, 1, 8, 5, 3, 6, 4, 2, 0 });
+        assertArrayEquals(ordenacao.getArray(), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+
+        ordenacao.quickSort(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+        assertArrayEquals(ordenacao.getArray(), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+    }
 }
