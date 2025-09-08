@@ -25,13 +25,15 @@ public class ArvoreTests {
         Arvore arvoreVazia = new Arvore();
         assertEquals(0, arvoreVazia.altura());
 
-        ArvoreNoh noh = new ArvoreNoh(1);
-        Arvore arvore = new Arvore(noh);
-        assertEquals(1, arvore.altura());
+        // ArvoreNoh noh = new ArvoreNoh(1);
+        // Arvore arvore = new Arvore(noh);
+        // assertEquals(1, arvore.altura());
+
+        Arvore arvoreBinaria = testGerarArvoreBinaria();
+        assertEquals(4, arvoreBinaria.altura());
     }
 
-    @Test
-    public void testGerarArvoreBinaria() {
+    public Arvore testGerarArvoreBinaria() {
         // Create nodes 0-9
         ArvoreNoh[] nohs = new ArvoreNoh[10];
         for (int i = 0; i < 10; i++) {
@@ -63,6 +65,7 @@ public class ArvoreTests {
 
         Arvore arvore = new Arvore(raiz);
         assertEquals(raiz, arvore.getRaiz());
+        return arvore;
     }
 
 }
